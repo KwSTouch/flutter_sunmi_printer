@@ -372,4 +372,15 @@ public class InnerPrinterUtil {
             e.printStackTrace();
         }
     }
+
+    public int updatePrinterState() {
+        try {
+            final int status = woyouService.updatePrinterState();
+            return status;
+        } catch (RemoteException e) {
+            return 0; // error
+        } catch (NullPointerException e) {
+            return 0;
+        }
+    }
 }

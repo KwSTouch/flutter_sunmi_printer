@@ -27,6 +27,7 @@ class SunmiPrinter {
   static const String PRINT_ROW = "printRow";
   static const String PRINT_IMAGE = "printImage";
   static const String CUT_PAPER = "cutPaper";
+  static const String UPDATE_PRINTER_STATE = "updatePrinterState";
 
   static const MethodChannel _channel =
       const MethodChannel('flutter_sunmi_printer');
@@ -135,5 +136,9 @@ class SunmiPrinter {
 
   static Future<void> cutPaper() async {
     await _channel.invokeMethod(CUT_PAPER);
+  }
+
+  static Future<int> updatePrinterState() async {
+    return await _channel.invokeMethod(UPDATE_PRINTER_STATE);
   }
 }

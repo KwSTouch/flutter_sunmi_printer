@@ -26,6 +26,7 @@ public class FlutterSunmiPrinterPlugin implements FlutterPlugin, MethodCallHandl
   private String PRINT_ROW = "printRow";
   private String PRINT_IMAGE = "printImage";
   private String CUT_PAPER = "cutPaper";
+  private String UPDATE_PRINTER_STATE = "updatePrinterState";
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
@@ -105,6 +106,9 @@ public class FlutterSunmiPrinterPlugin implements FlutterPlugin, MethodCallHandl
       result.success(null);
     } else if (call.method.equals(CUT_PAPER)) {
       flutterSunmiPrinterModule.cutPaper();
+    } else if (call.method.equals(UPDATE_PRINTER_STATE)) {
+      final int status_code = flutterSunmiPrinterModule.updatePrinterState();
+      result.success(status_code);
     } else {
       result.notImplemented();
     }

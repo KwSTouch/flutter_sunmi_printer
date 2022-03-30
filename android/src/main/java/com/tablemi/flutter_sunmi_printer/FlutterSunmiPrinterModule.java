@@ -148,4 +148,9 @@ public class FlutterSunmiPrinterModule {
   public void cutPaper() {
     InnerPrinterUtil.getInstance().cutPaper();
   }
+
+  public int updatePrinterState() {
+    return InnerPrinterUtil.getInstance().updatePrinterState();
+  }
+
 }

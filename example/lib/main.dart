@@ -15,6 +15,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   void _print() async {
+    var res = await SunmiPrinter.updatePrinterState();
+    print('printer state: $res');
     // Test regular text
     SunmiPrinter.hr();
     SunmiPrinter.text(
@@ -78,7 +80,7 @@ class _MyAppState extends State<MyApp> {
           children: <Widget>[
             SizedBox(height: 50),
             Center(
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: _print,
                 child: const Text('Print demo', style: TextStyle(fontSize: 20)),
               ),
